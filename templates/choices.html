@@ -1,0 +1,62 @@
+<!DOCTYPE>
+
+<html lanng="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="create glitch art with your photos">
+        <meta name="author" content="Azaan Barlas">
+        <title> Glitch art | Choices</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current"><a href="active.html">Glitch it</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+            <h1>Choose one</h1>
+                <form action="{{ url_for('choices') }}" method="POST" name="form">
+                    <p>{{ form.choices }}</p>
+                    <input type="submit" name= "fm">
+                </form>
+            <script>
+                // Set timeout
+                // attatch this script to the submit query button
+                // Switch statemtnt to execute per filter
+                // DOM = document object manipulation
+                // link the file into the javascript
+            </script>
+
+                <!-- TODO:
+                Make 3 seperate sections that include the pictrues from the last page, but have a "submit" section in it as well so that /////they can upload their files as well. These sections:
+                FILTER:
+                1. blur
+                2. grayscale
+                3. sepia
+                4. reflect
+                5. edges
+
+                RECOLOR:
+                1. recolor using -> https://richzhang.github.io/colorization/
+
+                GLITCH:
+                1. glitch using -> https://github.com/TotallyNotChase/glitch-this
+                -->
+            <h2>{{ message }}</h2>
+
+        <footer>
+            <p>Glitch images, copyright &copy; 2020</p>
+        </footer>
+    </body>
+</html>

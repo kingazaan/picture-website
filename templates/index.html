@@ -1,0 +1,69 @@
+<!DOCTYPE>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="create glitch art with your photos">
+        <meta name="author" content="Azaan Barlas">
+        <title> Glitch art | Welcome</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="active.html">Glitch it</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="showcase" style="background: '{{url_for('static', filename='showcase.jpg')}}';">
+            <div class="container">
+                <h1>Glitch art and photo filters</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+            </div>
+        </section>
+
+        <section id="newsletter">
+            <div class="container">
+                <h1>Subscribe for a newsletter on our images</h1>
+                <form >
+                    <input type="email" placeholder="Enter Email...">
+                    <button type="submit" class="button_1">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="boxes">
+            <div class="contianer">
+                <div class="box">
+                    <img src="{{url_for('static', filename='blur.jpg')}}">
+                    <h3>Filter Images</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename='recolor.jpg')}}">
+                    <h3>Recolor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                </div>
+                <div class="box">
+                    <img src="{{url_for('static', filename='glitched.jpg')}}">
+                    <h3>Glitch</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Glitch images, copyright &copy; 2020</p>
+        </footer>
+    </body>
+</html>

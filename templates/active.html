@@ -1,0 +1,79 @@
+<!DOCTYPE>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="create glitch art with your photos">
+        <meta name="author" content="Azaan Barlas">
+        <title> Glitch art | Glitch it</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="current"><a href="active.html">Glitch it</a></li>
+                        <li><a href="examples.html">Examples</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="newsletter">
+            <div class="container">
+                <h1>Subscribe for a newsletter on our images</h1>
+                <form >
+                    <input type="email" placeholder="Enter Email...">
+                    <button type="submit" class="button_1">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="main">
+            <article id="main-col">
+                <h1 class="page-title">ABOUT US</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+            </article>
+            <aside id="sidebar">
+                <div class="dark">
+                    <h3>WHAT WE DO</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                </div>
+            </aside> 
+            <div class="contianer">
+                <form action="/active" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="custom-file">
+                            <input oninput="filesize(this);" type="file" class="custom-file-input" name="image" id="image">
+                            <label class="custom-file-label" for="image">Select image...</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Upload image</button>
+                    <h1>{{ message }}</h1>
+                    <p><a href="choices.html">Click here after uploading</a></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="image_size">
+            <script>
+                function filesize(elem) {
+                    document.cookie = 'filesize=${elem.files[0].size}';
+                }
+            </script>
+
+        </section>
+
+        <footer>
+            <p>Glitch images, copyright &copy; 2020</p>
+        </footer>
+    </body>
+</html>
