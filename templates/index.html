@@ -7,13 +7,14 @@
         <meta name="description" content="create glitch art with your photos">
         <meta name="author" content="Azaan Barlas">
         <title> Glitch art | Welcome</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
     </head>
     <body>
         <header>
             <div class="container">
-                <div id="branding">
-                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                <div id="branding" class="branding" data-text="Art Pictures">
+                    <span class="highlight">Glitch</span> Art Pictures
                 </div>
                 <nav>
                     <ul>
@@ -25,45 +26,45 @@
             </div>
         </header>
 
-        <section id="showcase" style="background: '{{url_for('static', filename='showcase.jpg')}}';">
-            <div class="container">
-                <h1>Glitch art and photo filters</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
-            </div>
-        </section>
+        <div class="showcase">
+            <h1>Glitch art and photo filters!</h1>
+        </div>
 
-        <section id="newsletter">
-            <div class="container">
-                <h1>Subscribe for a newsletter on our images</h1>
-                <form >
-                    <input type="email" placeholder="Enter Email...">
-                    <button type="submit" class="button_1">Subscribe</button>
-                </form>
-            </div>
-        </section>
+        <div class="authors">
+            <table class="authors">
+                <tr>
+                <td><a href="https://github.com/richzhang/colorization">The code I used for Recolor </td>
+                <td class="textright"><a href="https://github.com/richzhang/"> Author: Richard </a></td>
+                </tr>
+                <tr>
+                <td><a href="https://github.com/TotallyNotChase/glitch-this">The code I used for Glitch </td>
+                <td class="textright"><a href="https://github.com/TotallyNotChase/"> Author: Not Chase </a></td>
+                <tr>
+            </table>
+        </div>
 
         <section id="boxes">
             <div class="contianer">
                 <div class="box">
                     <img src="{{url_for('static', filename='blur.jpg')}}">
                     <h3>Filter Images</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                    <p>Includes blurring, grayscale, color inverting, and vertical reflection of images</p>
                 </div>
                 <div class="box">
                     <img src="{{url_for('static', filename='recolor.jpg')}}">
                     <h3>Recolor</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                    <p>Recolor an image that might have never been colored. Works with grayscale OR black and white </p>
                 </div>
                 <div class="box">
                     <img src="{{url_for('static', filename='glitched.jpg')}}">
                     <h3>Glitch</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
+                    <p>Make a glitched GIF out of an image you upload </p>
                 </div>
             </div>
         </section>
 
-        <footer>
-            <p>Glitch images, copyright &copy; 2020</p>
+        <footer id="bottom">
+            <p>Glitch images, copyright &copy; 2021</p>
         </footer>
     </body>
 </html>

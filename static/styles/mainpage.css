@@ -15,6 +15,8 @@ body {
 ul {
     margin: 0;
     padding: 0;
+    font-size: 50px;
+    margin-bottom: 15px;
 }
 .button_1 {
     height: 38px;
@@ -27,7 +29,7 @@ ul {
 
 .dark {
     padding: 15px;
-    background: #35424a;
+    background: black;
     color: #ffffff;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -35,7 +37,7 @@ ul {
 
 /* Header */
 header {
-    background: #35424a;
+    background: black;
     color: #ffffff;
     padding-top: 30px;
     min-height: 70px;
@@ -45,8 +47,9 @@ header {
 header a {
     color: #ffffff;
     text-decoration: none;
-    text-transform: uppercase;
     font-size: 16px;
+    text-transform: uppercase;
+    transform: scale(2);
 }
 
 header li {
@@ -55,12 +58,176 @@ header li {
     padding: 0 20px 0 20px;
 }
 
+.activate {
+    padding-left: 13px;
+}
+
 header #branding {
     float: left;
 }
 
-header #branding h1 {
-    margin: 0
+.branding {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 30px
+}
+
+.branding:before,
+.branding:after {
+    position: absolute;
+    content: attr(data-text);
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 264px;
+    color #fff;
+    overflow: hidden;
+}
+
+.branding:before{
+    left: 3px;
+    text-shadow: -5px 0 red;
+    left: 264px;
+    animation: glitch-1 2s 0s linear reverse infinite;
+}
+
+.branding:after{
+    left: -3px;
+    text-shadow: -5px 0 blue;
+    left: 264px;
+    animation: glitch-2 2s 0s linear reverse infinite;
+}
+
+@keyframes glitch-1 {
+  0% {
+    clip: rect(132px, auto, 101px, 30px);
+  }
+  5% {
+    clip: rect(17px, auto, 94px, 30px);
+  }
+  10% {
+    clip: rect(40px, auto, 66px, 30px);
+  }
+  15% {
+    clip: rect(87px, auto, 82px, 30px);
+  }
+  20% {
+    clip: rect(137px, auto, 61px, 30px);
+  }
+  25% {
+    clip: rect(34px, auto, 14px, 30px);
+  }
+  30% {
+    clip: rect(133px, auto, 74px, 30px);
+  }
+  35% {
+    clip: rect(76px, auto, 107px, 30px);
+  }
+  40% {
+    clip: rect(59px, auto, 130px, 30px);
+  }
+  45% {
+    clip: rect(29px, auto, 84px, 30px);
+  }
+  50% {
+    clip: rect(22px, auto, 67px, 30px);
+  }
+  55% {
+    clip: rect(67px, auto, 62px, 30px);
+  }
+  60% {
+    clip: rect(10px, auto, 105px, 30px);
+  }
+  65% {
+    clip: rect(78px, auto, 115px, 30px);
+  }
+  70% {
+    clip: rect(105px, auto, 13px, 30px);
+  }
+  75% {
+    clip: rect(15px, auto, 75px, 30px);
+  }
+  80% {
+    clip: rect(66px, auto, 39px, 30px);
+  }
+  85% {
+    clip: rect(133px, auto, 73px, 30px);
+  }
+  90% {
+    clip: rect(36px, auto, 128px, 30px);
+  }
+  95% {
+    clip: rect(68px, auto, 103px, 30px);
+  }
+  100% {
+    clip: rect(14px, auto, 100px, 30px);
+  }
+}
+@keyframes glitch-2 {
+  0% {
+    clip: rect(129px, auto, 36px, 30px);
+  }
+  5% {
+    clip: rect(36px, auto, 4px, 30px);
+  }
+  10% {
+    clip: rect(85px, auto, 66px, 30px);
+  }
+  15% {
+    clip: rect(91px, auto, 91px, 30px);
+  }
+  20% {
+    clip: rect(148px, auto, 138px, 30px);
+  }
+  25% {
+    clip: rect(38px, auto, 122px, 30px);
+  }
+  30% {
+    clip: rect(69px, auto, 54px, 30px);
+  }
+  35% {
+    clip: rect(98px, auto, 71px, 30px);
+  }
+  40% {
+    clip: rect(146px, auto, 34px, 30px);
+  }
+  45% {
+    clip: rect(134px, auto, 43px, 30px);
+  }
+  50% {
+    clip: rect(102px, auto, 80px, 30px);
+  }
+  55% {
+    clip: rect(119px, auto, 44px, 30px);
+  }
+  60% {
+    clip: rect(106px, auto, 99px, 30px);
+  }
+  65% {
+    clip: rect(141px, auto, 74px, 30px);
+  }
+  70% {
+    clip: rect(20px, auto, 78px, 30px);
+  }
+  75% {
+    clip: rect(133px, auto, 79px, 30px);
+  }
+  80% {
+    clip: rect(78px, auto, 52px, 30px);
+  }
+  85% {
+    clip: rect(35px, auto, 39px, 30px);
+  }
+  90% {
+    clip: rect(67px, auto, 70px, 30px);
+  }
+  95% {
+    clip: rect(71px, auto, 103px, 30px);
+  }
+  100% {
+    clip: rect(83px, auto, 40px, 30px);
+  }
 }
 
 header nav{
@@ -79,44 +246,56 @@ header a:hover {
 }
 
 /* Showcase */
-#showcase {
-    min-height: 800px;
-    background: "{{url_for('static', filename='showcase.jpg')}}" no-repeat;
+.showcase {
+    margin-top: 5px;
+    background-image: url(../showcase.jpg);
     background-size: cover;
     text-align: center;
-    color: #000000;
+    height: 100%;
 }
 
-#showcase h1 {
-    margin-top: 450px;
-    font-size: 55px;
-    margin-bottom: 10px;
+.showcase h1 {
+    line-height: 11.5;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
 }
 
-#showcase p {
+.showcase p {
+    line-height: 15;
     font-size: 20px;
 }
 
-/* Newsletter */
-#newsletter {
+/* authors */
+.authors {
     padding: 15px;
     color: #ffffff;
-    background: #35424a;
+    background: black;
 }
 
-#newsletter h1 {
-    float: left;
+table.authors{
+    width: 60%;
+    margin-left: 15%;
+    margin-right: 15%;
+    text-align: left;
 }
 
-#newsletter form {
-    float: right;
-    margin-top: 15px;
+#mimic {
+    padding-left: 20px;
 }
 
-#newsletter input[type="email"]{
-    padding: 4px;
-    height: 40px;
-    width: 250px;
+.textright {
+    align-text: right;
+}
+
+.pushright {
+    align-content: right;
+    padding-top: 42px;
+    padding-left: 20px;
+}
+
+.authors a {
+    color: #ffffff;
 }
 
 /* Boxes */
@@ -149,10 +328,42 @@ article#main-col {
     padding-left: 1%;
 }
 
+/* Examples */
+.examples {
+    border: 1px solid black;
+    width: 500px;
+    height: auto;
+}
+
+/* Choices */
+.show {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+button#btn {
+    height: 50px;
+    width: auto;
+}
+
+img#changer {
+    display: block;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 15px;
+}
 
 footer {
     padding: 5px;
-    margin-top: 24%;
+    margin-top: 0;
+    color: #ffffff;
+    background-color: #e8491d;
+    text-align: center;
+}
+
+footer#bottom{
+    padding: 5px;
+    margin-top: 25%;
     color: #ffffff;
     background-color: #e8491d;
     text-align: center;
@@ -162,8 +373,8 @@ footer {
     header #branding,
     header nav,
     header nav li
-    #newsletter h1,
-    #newsletter form
+    #authors h1,
+    #authors form
     #boxes .box 
     article#main-col,
     aside#sidebar{
@@ -176,19 +387,33 @@ footer {
         padding-bottom: 20px;
     }
 
-    #showcase h1 {
+    #showcase li {
         margin-top: 40px;
     }
 
-    #newsletter button, .quote button {
+    #authors button, .quote button {
         display: block;
         width: 100%;
     }
 
-    #newsletter form input[type="email"], .quote input, .quote textarea {
-        width: 100%;
-        margin-bottom: 100%;
-    }
+}
+
+/* Form and other stuff on active page*/
+.custom-file {
+    margin-left: 13px;
+}
+
+.custom-file-label {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    margin-left: 13px;
+    margin-top: 5px;
+}
+
+#misc {
+    margin-left: 13px;
 }
 
  /* Dropdown Button */

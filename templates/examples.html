@@ -7,13 +7,14 @@
         <meta name="description" content="create glitch art with your photos">
         <meta name="author" content="Azaan Barlas">
         <title> Glitch art | Examples</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
     </head>
     <body>
         <header>
             <div class="container">
-                <div id="branding">
-                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                <div id="branding" class="branding" data-text="Art Pictures">
+                    <span class="highlight">Glitch</span> Art Pictures
                 </div>
                 <nav>
                     <ul>
@@ -28,24 +29,83 @@
         <section id="main">
             <div class="container">
                 <article id="main-col">
+                    <h1>  </h1>
                     <h1 class="page-title">Examples of Amazing Art</h1>
                     <ul id="examples">
-                        <li>
-                            <h3>Picture 1</h3>
-                            <h3>Picture 2</h3>
-                            <h3>Picture 3</h3>
-                            <!-- put in pictures with examples in this section!!! do all filters you can fit-->
-                        </li>
+                        <table>
+                            <tr>
+                            <td>
+                            <h3>Blur</h3>
+                            <img src='static\blur_before.jpg' class="examples">
+                            </td>
+                            <td class="pushright">
+                            <img src='static\blur_after.jpg' class="examples">
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <h3>Grayscale</h3>
+                            <img src='static\grayscale_before.jpg' class="examples">
+                            </td>
+                            <td class="pushright">
+                            <img src='static\grayscale_after.jpg' class="examples">                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <h3>Inversion</h3>
+                            <img src='static\inversion_before.jpg' class="examples">
+                            </td>
+                            <td class="pushright">
+                            <img src='static\inversion_after.jpg' class="examples">                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <h3>Reflect</h3>
+                            <img src='static\reflect_before.jpg' class="examples">
+                            </td>
+                            <td class="pushright">
+                            <img src='static\reflect_after.jpg' class="examples">                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <h3>Recolor</h3>
+                            <img src='static\recolor_before.jpg' class="examples">
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <img src='static\recolor_after_eccv16.png' class="examples">
+                            </td>
+                            <td id="mimic">
+                            <img src='static\recolor_after_siggraph17.png' class="examples">
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                            <h3>Glitch</h3>
+                            <img src='static\glitch_before.jpg'class="examples">
+                            </td>
+                            <td class="pushright">
+                            <img src='static\glitch_after.gif' class="examples">                            </td>
+                            </tr>
+                        </table>
                     </ul>
                 </article>
-                <aside id="sidebar">
-                    <div class="dark">
-                        <h3>WHAT WE DO</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ullamcorper lectus id dolor maximus, id ullamcorper ipsum varius. Praesent vulputate lectus at arcu malesuada placerat. Integer pharetra magna ac orci efficitur, vitae pellentesque est pellentesque. Sed pulvinar lacus eu ornare semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam ultrices facilisis eros, non venenatis libero pellentesque ut. Maecenas venenatis rhoncus lacinia. </p>
-                    </div>
-                </aside>
             </div>
         </section>
+
+        <div class="authors">
+            <table class="authors">
+                <tr>
+                <td><a href="https://github.com/richzhang/colorization">The code I used for Recolor </td>
+                <td class="textright"><a href="https://github.com/richzhang/"> Author: Richard </a></td>
+                </tr>
+                <tr>
+                <td><a href="https://github.com/TotallyNotChase/glitch-this">The code I used for Glitch </td>
+                <td class="textright"><a href="https://github.com/TotallyNotChase/"> Author: Not Chase </a></td>
+                <tr>
+            </table>
+        </div>
 
         <footer>
             <p>Glitch images, copyright &copy; 2020</p>

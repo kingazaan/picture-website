@@ -10,15 +10,20 @@ from flask_wtf import FlaskForm
 from wtforms import SelectField
 from tempfile import mkdtemp
 from werkzeug.utils import secure_filename
+import PIL
 from PIL import Image, ImageFilter, ImageChops
 import matplotlib.pyplot as plt
+from flask_caching import Cache
 
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
+# For more configuration options, check out the documentation
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.route("/")
+@app.route("/index.html")
 def home():
     return render_template("index.html")
 
@@ -26,7 +31,7 @@ def home():
 def example():
     return render_template("examples.html")
 
-app.config["IMAGE_UPLOADS"] = "C:/Users/ab/Documents/GitHub/picture-website/static/uploads"
+app.config["IMAGE_UPLOADS"] = "C:/Users/ab/Documents/GitHub/picture-website/static/saved"
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["PNG", "JPG", "JPEG", "GIF"]
 def allowed_image(filename):
     
@@ -58,8 +63,9 @@ def active():
             else:
                 filename = secure_filename(image.filename)
                 image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
-                active.bare = "".join(["static/uploads/", filename])
-                active.juan = "".join(["python colorization/demo_release.py -i static/uploads/", filename])
+                active.bare = "".join(["static/", filename])
+                active.juan = "".join(["python colorization/demo_release.py -i static/", filename, " -o static/"])
+                active.jose = "".join(["glitch_this -f -c -g ./static/", filename, " 5 -o ./static/glitched"])
 
             return render_template("active.html", message="Image saved")
         
@@ -79,26 +85,34 @@ def choices():
         image = Image.open(active.bare)
 
         if fm == "Blur":
-            blurred_image = image.filter(ImageFilter.GaussianBlur)
-            blurred_image.save("blurred.jpg")
-            blurred_image.show()
+            blurred_image = image.filter(ImageFilter.BoxBlur(10))
+            blurred_image.save("static/blurred.jpg")
+            message = "blur"
         
         if fm == "Grayscale":
             gray_image = image.convert('L')
-            gray_image.save("grayscale.jpg")
-            gray_image.show()
+            gray_image.save("static/grayscale.jpg")
+            message = "grayscale"
         
         if fm == "Inversion":
             invert_image = ImageChops.invert(image)
-            invert_image.save("inverted.jpg")
-            invert_image.show()
+            invert_image.save("static/inverted.jpg")
+            message = "invert"
+        
+        if fm == "Reflect":
+            reflected_image = image.transpose(PIL.Image.FLIP_LEFT_RIGHT)
+            reflected_image.save("static/reflected.jpg")
+            message = "reflect"
 
         if fm == "Recolor":
             os.system(active.juan)
-        
-        #if fm == "Glitch":
+            message = "recolor"
 
-        return render_template("choices.html", form=form, message='hi')
+        if fm == "Glitch":
+            os.system(active.jose)
+            message = "glitch"
+
+        return render_template("choices.html", form=form, message=message)
     else:
         return render_template("choices.html", form=form)
 

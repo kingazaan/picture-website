@@ -3,17 +3,21 @@
 <html lanng="en">
     <head>
         <meta charset="utf-8">
+        <meta http-equiv='cache-control' content='no-cache'> 
+        <meta http-equiv='expires' content='0'> 
+        <meta http-equiv='pragma' content='no-cache'> 
         <meta name="viewport" content="width=device-width">
         <meta name="description" content="create glitch art with your photos">
         <meta name="author" content="Azaan Barlas">
         <title> Glitch art | Choices</title>
-        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/mainpage.css') }}">
     </head>
     <body>
         <header>
             <div class="container">
-                <div id="branding">
-                    <h1><span class="highlight">Glitch</span> Art Pictures</h1>
+                <div id="branding" class="branding" data-text="Art Pictures">
+                    <span class="highlight">Glitch</span> Art Pictures
                 </div>
                 <nav>
                     <ul>
@@ -25,38 +29,91 @@
             </div>
         </header>
 
+        <div class="activate">
             <h1>Choose one</h1>
                 <form action="{{ url_for('choices') }}" method="POST" name="form">
                     <p>{{ form.choices }}</p>
                     <input type="submit" name= "fm">
                 </form>
-            <script>
-                // Set timeout
-                // attatch this script to the submit query button
-                // Switch statemtnt to execute per filter
-                // DOM = document object manipulation
-                // link the file into the javascript
-            </script>
+            <h3>Ready!</h3>
+        </div>
 
-                <!-- TODO:
-                Make 3 seperate sections that include the pictrues from the last page, but have a "submit" section in it as well so that /////they can upload their files as well. These sections:
-                FILTER:
-                1. blur
-                2. grayscale
-                3. sepia
-                4. reflect
-                5. edges
+        <div class="show">
+            <button id="btn">Click here to show picture</button>
+        </div>
+        <img id="changer" src='static\empty.jpg'>
+        <script type="text/javascript">
+            let img = document.querySelector('#changer')
+            let btn = document.querySelector('#btn')
 
-                RECOLOR:
-                1. recolor using -> https://richzhang.github.io/colorization/
+            if ("{{ message }}" === "blur") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/blurred.jpg";
+                })
+            }else if ("{{ message }}" === "grayscale") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/grayscale.jpg";
+                })
+            }else if ("{{ message }}" === "invert") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/inverted.jpg";
+                })
+            }else if ("{{ message }}" === "reflect") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/reflected.jpg";
+                })
+            }else if ("{{ message }}" === "recolor") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/_siggraph17.png";
+                })
+            }else if ("{{ message }}" === "glitch") {
+                btn.addEventListener('click', () => {
+                    img.src = "static/glitched.gif";
+                })
+            }
+        </script>
 
-                GLITCH:
-                1. glitch using -> https://github.com/TotallyNotChase/glitch-this
-                -->
-            <h2>{{ message }}</h2>
+        <div class="authors">
+            <table class="authors">
+                <tr>
+                <td><a href="https://github.com/richzhang/colorization">The code I used for Recolor </td>
+                <td class="textright"><a href="https://github.com/richzhang/"> Author: Richard </a></td>
+                </tr>
+                <tr>
+                <td><a href="https://github.com/TotallyNotChase/glitch-this">The code I used for Glitch </td>
+                <td class="textright"><a href="https://github.com/TotallyNotChase/"> Author: Not Chase </a></td>
+                <tr>
+            </table>
+        </div>
 
         <footer>
-            <p>Glitch images, copyright &copy; 2020</p>
+            <p>Glitch images, copyright &copy; 2021</p>
         </footer>
     </body>
 </html>
+
+<!-- Notes:
+
+function picture() {
+    if ({{ message }} === "blur") {
+        var pic = "C:/Users/ab/Documents/GitHub/picture-website/blurred.jpg";
+    }else if ({{ message }} === "grayscale") {
+        var pic = "../grayscale.jpg";
+    }else if ({{ message }} === "invert") {
+        var pic = "../inverted.jpg";
+    }else if ({{ message }} === "reflect") {
+        var pic = "../reflected.jpg";
+    }else if ({{ message }} === "recolor") {
+        var pic = "../saved_eccv16.png";
+        var pic_two = "./saved_siggraph17.png";
+    }else if ({{ message }} === "glitch") {
+        var pic = "../glitched.gif";
+    }
+    document.getElementById('bigpic').src = pic.replace('90x90', '225x225');
+    document.getElementById('bigpic').style.display='block';
+}
+// Set timeout
+// attatch this script to the submit query button
+// Switch statemtnt to execute per filter
+// DOM = document object manipulation
+// link the file into the javascript-->
