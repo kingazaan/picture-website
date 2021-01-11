@@ -13,5 +13,6 @@ Any question let me know!
 
 The code I used for Recolor: https://github.com/richzhang/colorization
 Author: Richard
+
 The code I used for Glitch: https://github.com/TotallyNotChase/glitch-this
 Author: Not Chase
