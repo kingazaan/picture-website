@@ -16,6 +16,8 @@ import matplotlib.pyplot as plt
 from flask_caching import Cache
 
 app = Flask(__name__)
+app.debug = True
+app.run()
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY

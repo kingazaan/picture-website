@@ -8,3 +8,10 @@ The functionality of the site is simple. In the main page, theere is a brief des
 Finally, the examples page shoowsk some examples of what the outcomes for each file moight be.
 
 Any question let me know!
+
+## Credit
+
+The code I used for Recolor: https://github.com/richzhang/colorization
+Author: Richard
+The code I used for Glitch: https://github.com/TotallyNotChase/glitch-this
+Author: Not Chase
